@@ -1,0 +1,2 @@
+password="";var num or letter or specialpassword=password+numnum or letter or special;password="12tayuni!$"var oldarray=password.split("");oldarray=["1","2","t","a","y","u","n","i","!","$"]var newone,var newtwofor(i=0;i<5;i++)  {  newone[i]=oldarray[i];}for(j=0; j<5; j++){      newtwo[j]=oldarray[j+5];  j=0newtwo[0]=oldarray[0]; [0,0,0,0,0] 
+while(pwLength<8 || pwLength>128){  window.alert("Enter a number between 8 to 128!");  pwLength=window.prompt("Please enter the desired length of your password?");} 
