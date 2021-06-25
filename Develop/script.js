@@ -18,14 +18,19 @@ generateBtn.addEventListener("click",generatePassword);
 function generatePassword() {
  
   passcodeLength = window.prompt("How many characters would you like the password to have?")
-
-  if (passcodeLength < 8 || passcodeLength > 128) {
-    //window.alert("Enter a number between 8 and 128");
-    console.log("password is too short or too long");
+  if (!passcodeLength) {
     return;
-  } else {
+  }
+
+  while (passcodeLength < 8 || passcodeLength > 128) {
+    //window.alert("Enter a number between 8 and 128");
+    window.alert("Password is too short or too long. Please press button again.");
+    console.log("not going to work");
+    return;
+  } 
+  if (passcodeLength > 7 || passcodeLength < 129) {
    // passcodeLength = window.prompt("How many characters would you like the password to have?")
-    console.log("This we can work with");
+    console.log( "we can work with " + passcodeLength);
   }
 
 }
