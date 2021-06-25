@@ -100,12 +100,18 @@ function generatePassword() {
 //   console.log(quickArray[i])
 // }
 
-var childArray = upperArray.concat(lowerArray);
 
- for (i=0;i<30;i++) {
-  console.log(childArray[i]);
-  
+
+var fruitBowl = ["oranges", "bananas", "apples"];
+var saladKit  = ["tomatoes", "olives", "feta", "aroubra"];
+var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
+var shoppingList = fruitBowl.concat(saladKit,granolaMix);
+
+for (i=0;i<10;i++) {
+  console.log(shoppingList[i]);
+
  }
+
 
 
 function getRandomInt(max) {
