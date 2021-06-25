@@ -18,6 +18,9 @@ var selectLower = true;
 var selectNumber = true;
 var selectSpecial = true;
 
+//SECRET WEAPON
+var userChoice = "";
+
 // // Add event listener to generate button
 // generateBtn.addEventListener('click', writePassword);
 
