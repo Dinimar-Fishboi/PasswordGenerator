@@ -5,13 +5,18 @@ var passwordText = document.querySelector('#password');
 
 passwordText.value = password;
 
-var selectUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var upperArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-var selectLower = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
+var lowerArray = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
 
-var selectNumber = [""];
+var numberArray = [""];
 
-var selectSpecial = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|"];
+var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|"];
+
+var selectUpper = true;
+var selectLower = true;
+var selectNumber = true;
+var selectSpecial = true;
 
 // // Add event listener to generate button
 // generateBtn.addEventListener('click', writePassword);
@@ -44,11 +49,58 @@ function generatePassword() {
     console.log( "we can work with " + passcodeLength);
   }
 
+  selectUpper = window.confirm("Would you like your passwork to have Uppercase Letters?")
+  if (!selectUpper){
+    selectUpper = false;
+    console.log(selectUpper);
+  } else {
+    console.log("We want Uppercase Characters in the passcode");
+    selectUpper = true;
+    console.log(selectUpper);
+  }
+
+  selectLower = window.confirm("Would you like your passwork to have Lowercase Letters?")
+  if (!selectLower){
+    selectLower = false;
+    console.log(selectLower);
+  } else {
+    console.log("We want Lowercase Characters in the passcode");
+    selectLower = true;
+    console.log(selectLower);
+  }
+
+  selectSpecial = window.confirm("Would you like your passwork to have Special Characters?")
+  if (!selectSpecial){
+    selectSpecial = false;
+    console.log(selectSpecial);
+  } else {
+    console.log("We want Special Characters in the passcode");
+    selectSpecial = true;
+    console.log(selectSpecial);
+  }
+
+  selectNumber = window.confirm("Would you like your passwork to have Numbers?")
+  if (!selectNumber){
+    selectSpecial = false;
+    console.log(selectNumber);
+  } else {
+    console.log("We want numbers in the passcode");
+    selectSpecial = true;
+    console.log(selectNumber);
+  }
 }
 
 
- 
 
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+} 
+
+  //var randomIndex = getRandomInt(3); 
+  //var compAnswer = possibleAnswers[randomIndex]; 
+ 
+console.log(getRandomInt(10));
 
 // if (passcodeLength < 8 || passcodeLength > 128) {
 //   //window.alert("Enter a number between 8 and 128");
