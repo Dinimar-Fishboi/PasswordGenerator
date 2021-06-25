@@ -1,6 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
 var passcodeLength = "";
+var passwordText = document.querySelector('#password');
+
+passwordText.value = password;
+
+var selectUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+var selectLower = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
+
+var selectNumber = [""];
+
+var selectSpecial = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|"];
 
 // // Add event listener to generate button
 // generateBtn.addEventListener('click', writePassword);
@@ -59,9 +70,6 @@ function generatePassword() {
 
 
 //   var password = generatePassword();
-//   var passwordText = document.querySelector('#password');
-
-//   passwordText.value = password;
 
 
 
