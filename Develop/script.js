@@ -88,6 +88,11 @@ function generatePassword() {
     selectSpecial = true;
     console.log(selectNumber);
   }
+  if (!selectUpper && !selectLower && !selectSpecial && !selectNumber) {
+    console.log("You need to choose SOME characters!!!");
+    window.alert("You do realise that when we want to generate a password, we need to select at least ONE type of character right? Try again");
+    generatePassword();
+  }
 }
 
 
