@@ -19,6 +19,7 @@ var selectNumber = true;
 var selectSpecial = true;
 
 //SECRET WEAPON
+// For every character type the user selects, there are immediately 2 characters of that type added to the passcode.
 var userChoice = "";
 
 // // Add event listener to generate button
