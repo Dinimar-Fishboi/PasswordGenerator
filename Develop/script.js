@@ -95,7 +95,17 @@ function generatePassword() {
   }
 }
 
+// for (i=0;i<5;i++) {
+//   upperArray[i] = quickArray[i];
+//   console.log(quickArray[i])
+// }
 
+var childArray = upperArray.concat(lowerArray);
+
+ for (i=0;i<30;i++) {
+  console.log(childArray[i]);
+  
+ }
 
 
 function getRandomInt(max) {
