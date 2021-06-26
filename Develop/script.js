@@ -181,15 +181,19 @@ function generatePassword() {
   }
 
   if (selectUpper){
-    charactersIncluded = upperArray.concat();
+    charactersIncluded = charactersIncluded.concat(selectUpper);
     passcodeLength = passcodeLength - userChoice;
     backupCharacters +=  upperArray[randomIndex];
-    console.log(backupCharacters)
-  } else if (userChoice = 3){
-      charactersIncluded = lowerArray.concat();
-      passcodeLength = passcodeLength - 1;
-      backupCharacters = lowerArray[randomIndex];
+    console.log(backupCharacters);
+    console.log(charactersIncluded);
+  }  
+  if (selectLower){
+      charactersIncluded = charactersIncluded.concat(lowerArray);
+      passcodeLength = passcodeLength - userChoice;
+      backupCharacters += lowerArray[randomIndex];
       console.log(backupCharacters);
+      console.log(charactersIncluded);
+
     } else if (userChoice = 4){
     charactersIncluded = upperArray.concat(lowerArray);
     passcodeLength = passcodeLength - 2;
