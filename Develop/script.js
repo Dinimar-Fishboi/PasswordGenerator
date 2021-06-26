@@ -44,6 +44,9 @@ console.log(lowerArray[0]);
 console.log(specialArray[0]);
 console.log(numberArray[0]);
 
+// This variable set will be useful when confirming which character
+// types the user selects.
+
 var selectUpper = true;
 var selectLower = true;
 var selectNumber = true;
@@ -73,16 +76,23 @@ function generatePassword() {
   var randomIndex = getRandomInt(12); 
  
   passcodeLength = window.prompt("How many characters would you like the password to have?")
+
+  // This essentially states that if the user chooses cancel rather than enter a button, they can
+  // exit the window.
+
   if (!passcodeLength) {
     return;
   }
 
+  // Ensures that the user enters an appropriate function length.
+  
   while (passcodeLength < 8 || passcodeLength > 128) {
-    //window.alert("Enter a number between 8 and 128");
-    window.alert("Password is too short or too long. Please press button again.");
+    window.alert("Password is too short or too long. 8<= password => 128.");
     console.log("not going to work");
+    generatePassword();
     return;
   } 
+
   if (passcodeLength > 7 || passcodeLength < 129) {
    // passcodeLength = window.prompt("How many characters would you like the password to have?")
     console.log( "we can work with " + passcodeLength);
