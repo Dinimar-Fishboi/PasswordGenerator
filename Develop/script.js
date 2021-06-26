@@ -14,7 +14,7 @@ var randomIndex = getRandomInt(12);
 
 //The next few lines are purely arrays and variables to make the Bigger Arrays
 
-var charactersIncluded = "",
+var charactersIncluded = "";
 
 var upperArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
