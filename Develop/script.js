@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
 var passcodeLength = "";
+var backupCharacters = "";
 var passwordText = document.querySelector('#password');
 
 passwordText.value = password;
@@ -54,8 +55,8 @@ var selectNumber = true;
 var selectSpecial = true;
 
 //SECRET WEAPON
-// For every character type the user selects, there are immediately 2 characters of that type added to the passcode.
-var userChoice = "";
+// For every character type the user selects, there is immediately 1 characters of that type added to the passcode.
+var userChoice = 0;
 
 // // Add event listener to generate button
 // generateBtn.addEventListener('click', writePassword);
@@ -75,8 +76,8 @@ function generatePassword() {
   //by reinserting this variable from the top of the page,
   // we are generating a new integer each time the button is pressed,
   // as well as shuffling the array around.
-  var randomIndex = getRandomInt(12); 
   shuffleArray();
+  var randomIndex = getRandomInt(10); 
 
  
   passcodeLength = window.prompt("How many characters would you like the password to have?")
@@ -110,6 +111,7 @@ function generatePassword() {
     console.log("We want Uppercase Characters in the passcode");
     selectUpper = true;
     console.log(selectUpper);
+    userChoice = userChoice + 1;
   }
 
   selectLower = window.confirm("Would you like your passwork to have Lowercase Letters?")
@@ -120,6 +122,7 @@ function generatePassword() {
     console.log("We want Lowercase Characters in the passcode");
     selectLower = true;
     console.log(selectLower);
+    userChoice = userChoice + 3;
   }
 
   selectSpecial = window.confirm("Would you like your passwork to have Special Characters?")
@@ -130,6 +133,7 @@ function generatePassword() {
     console.log("We want Special Characters in the passcode");
     selectSpecial = true;
     console.log(selectSpecial);
+    userChoice = userChoice + 5;
   }
 
   selectNumber = window.confirm("Would you like your passwork to have Numbers?")
@@ -140,28 +144,38 @@ function generatePassword() {
     console.log("We want numbers in the passcode");
     selectNumber = true;
     console.log(selectNumber);
+    userChoice = userChoice + 9;
   }
+
   if (!selectUpper && !selectLower && !selectSpecial && !selectNumber) {
     console.log("You need to choose SOME characters!!!");
     window.alert("You do realise that when we want to generate a password, we need to select at least ONE type of character right? Try again");
     generatePassword();
   }
 
+  console.log(userChoice);
+
 // what character type to include
 
-  if (selectUpper) {
-    charactersIncluded = upperArray.concat();
-  } else if (selectLower) {
-    charactersIncluded = lowerArray.concat();
-  } else if (selectSpecial) {
-    charactersIncluded = specialArray.concat();
-  } else if (selectNumber)  {
-    charactersIncluded = numberArray.concat();
-  }
+  // if (selectUpper) {
+  //   charactersIncluded = upperArray.concat();
+  // } else if (selectLower) {
+  //   charactersIncluded = lowerArray.concat();
+  // } else if (selectSpecial) {
+  //   charactersIncluded = specialArray.concat();
+  // } else if (selectNumber)  {
+  //   charactersIncluded = numberArray.concat();
+  // }
  
-  if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
-    charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
-    
+  // if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
+  //   charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
+  // }
+
+  if (userChoice = 4){
+    charactersIncluded = upperArray.concat(lowerArray);
+    passcodeLength = passcodeLength - 2;
+    backupCharacters = upperArray[randomIndex] + lowerArray[randomIndex];
+    console.log(backupCharacters)
   }
 
   function shuffleCharacters() {
@@ -169,9 +183,15 @@ function generatePassword() {
   }
   shuffleCharacters();
 
+  //Now we need to add a piece of code to disect the array to appropriate length
+  var testPasscode = charactersIncluded.slice(0,passcodeLength);
+  var newPassword = testPasscode.join('') + backupCharacters;
+  console.log(newPassword);
+  userChoice = 0;
+  console.log(userChoice);
   // the .join function turns the array into a single string
-  charactersIncluded.join('');
-  window.alert(charactersIncluded.join(''));
+  // charactersIncluded.join('');
+  // window.alert(charactersIncluded.join(''));
 
   // for (i=0;i<passcodeLength;i++) {
   //   window.alert(charactersIncluded[i]);
