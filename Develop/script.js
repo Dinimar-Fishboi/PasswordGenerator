@@ -169,9 +169,13 @@ function generatePassword() {
   }
   shuffleCharacters();
 
-  for (i=0;i<passcodeLength;i++) {
-    console.log(charactersIncluded[i]);
-  }
+  // the .join function turns the array into a single string
+  charactersIncluded.join('');
+  window.alert(charactersIncluded.join(''));
+
+  // for (i=0;i<passcodeLength;i++) {
+  //   window.alert(charactersIncluded[i]);
+  // }
   //console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
 
 }
