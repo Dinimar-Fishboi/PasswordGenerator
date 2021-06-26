@@ -149,30 +149,30 @@ function generatePassword() {
 
 // what character type to include
 
- if (selectUpper) {
-   charactersIncluded = upperArray.concat();
- } else if (selectLower) {
-   charactersIncluded = lowerArray.concat();
- } else if (selectSpecial) {
-   charactersIncluded = specialArray.concat();
- } else if (selectNumber)  {
-   charactersIncluded = numberArray.concat();
- }
+  if (selectUpper) {
+    charactersIncluded = upperArray.concat();
+  } else if (selectLower) {
+    charactersIncluded = lowerArray.concat();
+  } else if (selectSpecial) {
+    charactersIncluded = specialArray.concat();
+  } else if (selectNumber)  {
+    charactersIncluded = numberArray.concat();
+  }
  
- if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
-  charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
-  
- }
+  if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
+    charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
+    
+  }
 
- function shuffleCharacters() {
-  charactersIncluded.sort(() => Math.random() - 0.5);
-}
-shuffleCharacters();
+  function shuffleCharacters() {
+    charactersIncluded.sort(() => Math.random() - 0.5);
+  }
+  shuffleCharacters();
 
- for (i=0;i<5;i++) {
-  console.log(charactersIncluded[i]);
-}
- //console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
+  for (i=0;i<passcodeLength;i++) {
+    console.log(charactersIncluded[i]);
+  }
+  //console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
 
 }
 
