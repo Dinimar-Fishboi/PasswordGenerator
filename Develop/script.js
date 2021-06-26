@@ -47,6 +47,10 @@ generateBtn.addEventListener("click",generatePassword);
 
 // THIS is what happens when the button is pressed
 function generatePassword() {
+
+  //by reinserting this variable from the top of the page,
+  // we are generating a new integer each time the button is pressed.
+  var randomIndex = getRandomInt(12); 
  
   passcodeLength = window.prompt("How many characters would you like the password to have?")
   if (!passcodeLength) {
@@ -100,7 +104,7 @@ function generatePassword() {
     console.log(selectNumber);
   } else {
     console.log("We want numbers in the passcode");
-    selectSpecial = true;
+    selectNumber = true;
     console.log(selectNumber);
   }
   if (!selectUpper && !selectLower && !selectSpecial && !selectNumber) {
