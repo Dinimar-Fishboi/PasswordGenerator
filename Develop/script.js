@@ -11,7 +11,7 @@ function getRandomInt(max) {
 } 
 var randomIndex = getRandomInt(12); 
 
-
+//The next few lines are purely arrays and variables to make the Bigger Arrays
 
 var charactersIncluded = {}
 
@@ -19,10 +19,30 @@ var upperArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P
 
 var lowerArray = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
 
-var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
-
 var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|"];
 
+var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
+
+console.log(upperArray[0]);
+console.log(lowerArray[0]);
+console.log(specialArray[0]);
+console.log(numberArray[0]);
+
+// This is the equation to SHUFFLE THE ARRAY - which - I found HERE: https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
+function shuffleArray() {
+  upperArray.sort(() => Math.random() - 0.5);
+  lowerArray.sort(() => Math.random() - 0.5);
+  specialArray.sort(() => Math.random() - 0.5);
+  numberArray.sort(() => Math.random() - 0.5);
+}
+shuffleArray();
+
+// Below is just a check to confirm that the array shuffled
+
+console.log(upperArray[0]);
+console.log(lowerArray[0]);
+console.log(specialArray[0]);
+console.log(numberArray[0]);
 
 var selectUpper = true;
 var selectLower = true;
@@ -126,7 +146,7 @@ function generatePassword() {
  }
  
 // var randomCharacter = charactersIncluded[randomIndex];
- console.log(charactersIncluded[randomIndex]);
+ console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
 }
 
 
