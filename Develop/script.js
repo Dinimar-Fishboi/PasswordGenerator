@@ -23,10 +23,10 @@ var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",
 
 var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
 
-console.log(upperArray[0]);
-console.log(lowerArray[0]);
-console.log(specialArray[0]);
-console.log(numberArray[0]);
+// console.log(upperArray[0]);
+// console.log(lowerArray[0]);
+// console.log(specialArray[0]);
+// console.log(numberArray[0]);
 
 // This is the equation to SHUFFLE THE ARRAY - which - I found HERE: https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
 function shuffleArray() {
@@ -34,15 +34,16 @@ function shuffleArray() {
   lowerArray.sort(() => Math.random() - 0.5);
   specialArray.sort(() => Math.random() - 0.5);
   numberArray.sort(() => Math.random() - 0.5);
+ // charactersIncluded.sort(() => Math.random() - 0.5);
 }
 shuffleArray();
 
 // Below is just a check to confirm that the array shuffled
 
-console.log(upperArray[0]);
-console.log(lowerArray[0]);
-console.log(specialArray[0]);
-console.log(numberArray[0]);
+// console.log(upperArray[0]);
+// console.log(lowerArray[0]);
+// console.log(specialArray[0]);
+// console.log(numberArray[0]);
 
 // This variable set will be useful when confirming which character
 // types the user selects.
@@ -72,8 +73,11 @@ generateBtn.addEventListener("click",generatePassword);
 function generatePassword() {
 
   //by reinserting this variable from the top of the page,
-  // we are generating a new integer each time the button is pressed.
+  // we are generating a new integer each time the button is pressed,
+  // as well as shuffling the array around.
   var randomIndex = getRandomInt(12); 
+  shuffleArray();
+
  
   passcodeLength = window.prompt("How many characters would you like the password to have?")
 
@@ -85,7 +89,7 @@ function generatePassword() {
   }
 
   // Ensures that the user enters an appropriate function length.
-  
+
   while (passcodeLength < 8 || passcodeLength > 128) {
     window.alert("Password is too short or too long. 8<= password => 128.");
     console.log("not going to work");
@@ -155,8 +159,21 @@ function generatePassword() {
    charactersIncluded = numberArray.concat();
  }
  
-// var randomCharacter = charactersIncluded[randomIndex];
- console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
+ if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
+  charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
+  
+ }
+
+ function shuffleCharacters() {
+  charactersIncluded.sort(() => Math.random() - 0.5);
+}
+shuffleCharacters();
+
+ for (i=0;i<5;i++) {
+  console.log(charactersIncluded[i]);
+}
+ //console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
+
 }
 
 
@@ -169,25 +186,22 @@ function generatePassword() {
 
 
 
-var fruitBowl = ["oranges", "bananas", "apples"];
-var saladKit  = ["tomatoes", "olives", "feta", "rocket"];
-var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
-var shoppingList = fruitBowl.concat(saladKit,granolaMix);
+// var fruitBowl = ["oranges", "bananas", "apples"];
+// var saladKit  = ["tomatoes", "olives", "feta", "rocket"];
+// var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
+// var shoppingList = fruitBowl.concat(saladKit,granolaMix);
 
-for (i=0;i<10;i++) {
-  console.log(shoppingList[i]);
+// for (i=0;i<10;i++) {
+//   console.log(shoppingList[i]);
 
- }
-
-
-
+//  }
 
  
-  //var compAnswer = possibleAnswers[randomIndex]; 
-  var speficifIngredient = shoppingList[randomIndex]
+//   //var compAnswer = possibleAnswers[randomIndex]; 
+//   var speficifIngredient = shoppingList[randomIndex]
  
-console.log(getRandomInt(12));
-console.log(speficifIngredient)
+// console.log(getRandomInt(12));
+// console.log(speficifIngredient)
 
 // if (passcodeLength < 8 || passcodeLength > 128) {
 //   //window.alert("Enter a number between 8 and 128");
