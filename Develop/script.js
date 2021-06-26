@@ -14,7 +14,7 @@ var randomIndex = getRandomInt(12);
 
 //The next few lines are purely arrays and variables to make the Bigger Arrays
 
-var charactersIncluded = {}
+var charactersIncluded = "",
 
 var upperArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
@@ -23,6 +23,8 @@ var lowerArray = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h
 var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|"];
 
 var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
+
+console.log(charactersIncluded);
 
 // console.log(upperArray[0]);
 // console.log(lowerArray[0]);
@@ -103,6 +105,8 @@ function generatePassword() {
     console.log( "we can work with " + passcodeLength);
   }
 
+  // Seriese of alerts asking what the characters the user would like.
+
   selectUpper = window.confirm("Would you like your passwork to have Uppercase Letters?")
   if (!selectUpper){
     selectUpper = false;
@@ -175,7 +179,7 @@ function generatePassword() {
   if (userChoice = 1){
     charactersIncluded = upperArray.concat();
     passcodeLength = passcodeLength - 1;
-    backupCharacters = upperArray[randomIndex];
+    backupCharacters = backupCharacters + upperArray[randomIndex];
     console.log(backupCharacters)
   } else if (userChoice = 3){
       charactersIncluded = lowerArray.concat();
