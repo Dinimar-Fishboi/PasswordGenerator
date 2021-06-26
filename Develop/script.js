@@ -111,7 +111,7 @@ function generatePassword() {
     console.log("We want Uppercase Characters in the passcode");
     selectUpper = true;
     console.log(selectUpper);
-    userChoice = userChoice + 1;
+    userChoice = userChoice+1;
   }
 
   selectLower = window.confirm("Would you like your passwork to have Lowercase Letters?")
@@ -122,7 +122,7 @@ function generatePassword() {
     console.log("We want Lowercase Characters in the passcode");
     selectLower = true;
     console.log(selectLower);
-    userChoice = userChoice + 3;
+    userChoice = userChoice+3;
   }
 
   selectSpecial = window.confirm("Would you like your passwork to have Special Characters?")
@@ -133,7 +133,7 @@ function generatePassword() {
     console.log("We want Special Characters in the passcode");
     selectSpecial = true;
     console.log(selectSpecial);
-    userChoice = userChoice + 5;
+    userChoice = userChoice+5;
   }
 
   selectNumber = window.confirm("Would you like your passwork to have Numbers?")
@@ -144,7 +144,7 @@ function generatePassword() {
     console.log("We want numbers in the passcode");
     selectNumber = true;
     console.log(selectNumber);
-    userChoice = userChoice + 9;
+    userChoice = userChoice+9;
   }
 
   if (!selectUpper && !selectLower && !selectSpecial && !selectNumber) {
@@ -152,6 +152,7 @@ function generatePassword() {
     window.alert("You do realise that when we want to generate a password, we need to select at least ONE type of character right? Try again");
     generatePassword();
   }
+
 
   console.log(userChoice);
 
@@ -171,7 +172,17 @@ function generatePassword() {
   //   charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
   // }
 
-  if (userChoice = 4){
+  if (userChoice = 1){
+    charactersIncluded = upperArray.concat();
+    passcodeLength = passcodeLength - 1;
+    backupCharacters = upperArray[randomIndex];
+    console.log(backupCharacters)
+  } else if (userChoice = 3){
+      charactersIncluded = lowerArray.concat();
+      passcodeLength = passcodeLength - 1;
+      backupCharacters = lowerArray[randomIndex];
+      console.log(backupCharacters);
+    } else if (userChoice = 4){
     charactersIncluded = upperArray.concat(lowerArray);
     passcodeLength = passcodeLength - 2;
     backupCharacters = upperArray[randomIndex] + lowerArray[randomIndex];
