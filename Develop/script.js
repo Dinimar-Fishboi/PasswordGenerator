@@ -5,13 +5,24 @@ var passwordText = document.querySelector('#password');
 
 passwordText.value = password;
 
+// Random Number Generator
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+} 
+var randomIndex = getRandomInt(12); 
+
+
+
+var charactersIncluded = {}
+
 var upperArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 var lowerArray = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
 
-var numberArray = [""];
+var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
 
 var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|"];
+
 
 var selectUpper = true;
 var selectLower = true;
@@ -85,7 +96,7 @@ function generatePassword() {
 
   selectNumber = window.confirm("Would you like your passwork to have Numbers?")
   if (!selectNumber){
-    selectSpecial = false;
+    selectNumber = false;
     console.log(selectNumber);
   } else {
     console.log("We want numbers in the passcode");
@@ -97,7 +108,25 @@ function generatePassword() {
     window.alert("You do realise that when we want to generate a password, we need to select at least ONE type of character right? Try again");
     generatePassword();
   }
+
+// what character type to include
+
+ if (selectUpper) {
+   charactersIncluded = upperArray.concat();
+ } else if (selectLower) {
+   charactersIncluded = lowerArray.concat();
+ } else if (selectSpecial) {
+   charactersIncluded = specialArray.concat();
+ } else if (selectNumber)  {
+   charactersIncluded = numberArray.concat();
+ }
+ 
+// var randomCharacter = charactersIncluded[randomIndex];
+ console.log(charactersIncluded[randomIndex]);
 }
+
+
+
 
 // for (i=0;i<5;i++) {
 //   upperArray[i] = quickArray[i];
@@ -107,7 +136,7 @@ function generatePassword() {
 
 
 var fruitBowl = ["oranges", "bananas", "apples"];
-var saladKit  = ["tomatoes", "olives", "feta", "aroubra"];
+var saladKit  = ["tomatoes", "olives", "feta", "rocket"];
 var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
 var shoppingList = fruitBowl.concat(saladKit,granolaMix);
 
@@ -118,14 +147,13 @@ for (i=0;i<10;i++) {
 
 
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-} 
 
-  //var randomIndex = getRandomInt(3); 
-  //var compAnswer = possibleAnswers[randomIndex]; 
  
-console.log(getRandomInt(10));
+  //var compAnswer = possibleAnswers[randomIndex]; 
+  var speficifIngredient = shoppingList[randomIndex]
+ 
+console.log(getRandomInt(12));
+console.log(speficifIngredient)
 
 // if (passcodeLength < 8 || passcodeLength > 128) {
 //   //window.alert("Enter a number between 8 and 128");
