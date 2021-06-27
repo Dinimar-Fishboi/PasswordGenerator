@@ -218,8 +218,11 @@ function generatePassword() {
 
       charactersIncluded = charactersIncluded.join("");
       console.log(charactersIncluded);
-      testPasscode = charactersIncluded + backupCharacters;
-      console.log(testPasscode);
+      passwordText = charactersIncluded + backupCharacters;
+      console.log(passwordText);
+      window.alert("Your new password is " + passwordText);
+      document.querySelector("#password").innerHTML = passwordText;
+      event.preventDefault();
       
   // This is the reset block, essentially stating that once the code has finalised,
   // we want the following variables to return to 0 or null. IF these lines aren't here,
@@ -231,3 +234,7 @@ function generatePassword() {
       backupCharacters = "";
  
 }
+
+var passwordText = document.querySelector('#password');
+
+
