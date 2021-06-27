@@ -207,7 +207,6 @@ function generatePassword() {
   // The shuffleCharacters function ensures that all the values
   // in all the selected arrays are randomised, rather than being Upper => Lower
   // => Special => Number, after which we cut up the new array charactersIncluded.
-  console.log(charactersIncluded);
 
       passcodeLength = passcodeLength - userChoice;
       shuffleCharacters();
@@ -232,19 +231,3 @@ function generatePassword() {
       backupCharacters = "";
  
 }
-
-
-// var fruitBowl = ["oranges", "bananas", "apples"];
-// var saladKit  = ["tomatoes", "olives", "feta", "rocket"];
-// var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
-// var shoppingList = fruitBowl.concat(saladKit,saladKit,saladKit,saladKit,saladKit,saladKit,saladKit,saladKit);
-// console.log(shoppingList)
-// for (i=0;i<10;i++) {
-//   console.log(shoppingList[i]);
-//  }
- 
-//   //var compAnswer = possibleAnswers[randomIndex]; 
-//   var speficifIngredient = shoppingList[randomIndex]
- 
-// console.log(getRandomInt(12));
-// console.log(speficifIngredient)
