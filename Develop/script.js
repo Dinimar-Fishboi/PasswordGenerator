@@ -7,11 +7,11 @@ var backupCharacters = "";
 var passwordString = "";
 var testPasscode = "";
 var userChoice = 0;
-var passwordText = document.querySelector('#password');
+// var passwordText = document.querySelector('#password');
 
-passwordText.value = password;
+// passwordText.value = password;
 
-var newPassword = [passwordText];
+// var newPassword = [passwordText];
 // newPassword[passwordText] = event.passwordString
 
 
@@ -65,12 +65,15 @@ var selectSpecial = true;
 //when the button is pressed, User should be asked how long they want the
 // Password to be.
 
-generateBtn.addEventListener("click",generatePassword);
 
 
 // THIS is what happens when the button is pressed
 
 function generatePassword() {
+
+  var passwordText = document.querySelector('#password');
+
+
 
   //by reinserting this variable from the top of the page,
   // we are generating a new integer each time the button is pressed,
@@ -216,8 +219,8 @@ function generatePassword() {
 
       charactersIncluded = charactersIncluded.join("");
       console.log(charactersIncluded);
-      passwordString = charactersIncluded + backupCharacters;
-      console.log(passwordString);
+      passwordText = charactersIncluded + backupCharacters;
+      console.log(passwordText);
 
       // if (passwordString){
       //   window.alert("Your new password is " + passwordString);
@@ -229,9 +232,12 @@ function generatePassword() {
       //   event.preventDefault();
       // }
 
-      window.alert("Your new password is " + passwordString);
+      window.alert("Your new password is " + passwordText);
 
-      document.getElementById('password').innerHTML = passwordString;
+      document.getElementById('password').innerHTML = passwordText;
+
+      passwordText.value = password;
+
       
   // This is the reset block, essentially stating that once the code has finalised,
   // we want the following variables to return to 0 or null. IF these lines aren't here,
@@ -248,3 +254,4 @@ function generatePassword() {
 // var passwordText = document.querySelector('#password');
 
 
+generateBtn.addEventListener("click",generatePassword);
