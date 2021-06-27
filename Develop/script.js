@@ -163,36 +163,11 @@ function generatePassword() {
     generatePassword();
   }
 
-
+  // This indicates how many character styles the user has selected.
   console.log(userChoice);
 
-// what character type to include
-
-  // if (selectUpper) {
-  //   charactersIncluded = charactersIncluded.concat(upperArray);
-  //   backupCharacters = backupCharacters + upperArray[randomIndex];
-  //   passcodeLength = passcodeLength - userChoice;
-  //   console.log(charactersIncluded);
-  // } else if (selectLower) {
-  //   charactersIncluded = lowerArray.concat();
-  // } else if (selectSpecial) {
-  //   charactersIncluded = specialArray.concat();
-  // } else if (selectNumber)  {
-  //   charactersIncluded = numberArray.concat();
-  // }
-
-  // if (selectUpper){
-  //   backupCharacters = upperArray[randomIndex]
-  // }
- 
-  // if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
-  //   charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
-  //   shuffleCharacters();
-  //   passcodeLength = passcodeLength - userChoice;
-  //   stringArray = charactersIncluded.slice(0,passcodeLength);
-  //   stingArray = stringArray.join('');
-  //   console.log(stringArray);
-  // }
+ // This next statement is about creating the value of the backupCharacters variable,
+ // so that we have at least 1 of each character style in the generated password.
 
   if (selectUpper){
     charactersIncluded = charactersIncluded.concat(upperArray);
@@ -202,11 +177,19 @@ function generatePassword() {
   }  
   if (selectLower){
       charactersIncluded = charactersIncluded.concat(lowerArray);
-      //passcodeLength = passcodeLength - userChoice;
       backupCharacters += lowerArray[randomIndex];
       console.log("Random add at end of password = " + backupCharacters);
-      //  console.log(charactersIncluded);
   }
+  if (selectSpecial){
+    charactersIncluded = charactersIncluded.concat(specialArray);
+    backupCharacters += specialArray[randomIndex];
+    console.log("Random add at end of password = " + backupCharacters);
+    }
+    if (selectNumber){
+    charactersIncluded = charactersIncluded.concat(numberArray);
+    backupCharacters += numberArray[randomIndex];
+    console.log("Random add at end of password = " + backupCharacters);
+    }
 
   // Independent statements that we want regardless of chosen characters.
       passcodeLength = passcodeLength - userChoice;
