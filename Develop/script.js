@@ -4,11 +4,16 @@
 var generateBtn = document.querySelector('#generate');
 var passcodeLength = "";
 var backupCharacters = "";
-var stringArray = "";
+var passwordString = "";
 var testPasscode = "";
 var userChoice = 0;
 var passwordText = document.querySelector('#password');
-//passwordText.value = password;
+
+passwordText.value = password;
+
+var newPassword = [passwordText];
+// newPassword[passwordText] = event.passwordString
+
 
 // Random Number Generator
 function getRandomInt(max) {
@@ -211,11 +216,22 @@ function generatePassword() {
 
       charactersIncluded = charactersIncluded.join("");
       console.log(charactersIncluded);
-      passwordText = charactersIncluded + backupCharacters;
-      console.log(passwordText);
-      window.alert("Your new password is " + passwordText);
-      document.querySelector("password").innerHTML = passwordText;
-      //event.preventDefault();
+      passwordString = charactersIncluded + backupCharacters;
+      console.log(passwordString);
+
+      // if (passwordString){
+      //   window.alert("Your new password is " + passwordString);
+      //   newPassword[passwordText] = event.passwordString;
+
+      //   document.innerHTML(newPassword) = password;
+      //   //document.textarea.textContent = passwordText;
+      //   //document.querySelector("#password").innerHTML = "passwordText";
+      //   event.preventDefault();
+      // }
+
+      window.alert("Your new password is " + passwordString);
+
+      document.getElementById('password').innerHTML = passwordString;
       
   // This is the reset block, essentially stating that once the code has finalised,
   // we want the following variables to return to 0 or null. IF these lines aren't here,
