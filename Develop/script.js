@@ -1,9 +1,12 @@
-// Assignment Code
+// Assignment Code  -- Please note that for simplicity I also placed the default
+// value for my created variables up here.
+
 var generateBtn = document.querySelector('#generate');
 var passcodeLength = "";
 var backupCharacters = "";
 var stringArray = "";
 var testPasscode = "";
+var userChoice = 0;
 var passwordText = document.querySelector('#password');
 
 passwordText.value = password;
@@ -14,7 +17,7 @@ function getRandomInt(max) {
 } 
 var randomIndex = getRandomInt(12); 
 
-//The next few lines are purely arrays and variables to make the Bigger Arrays
+//The next few lines are initial arrays and variables to make the Bigger Arrays
 
 var charactersIncluded = [];
 
@@ -28,66 +31,62 @@ var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
 
 console.log(charactersIncluded);
 
-// console.log(upperArray[0]);
-// console.log(lowerArray[0]);
-// console.log(specialArray[0]);
-// console.log(numberArray[0]);
-
 // This is the equation to SHUFFLE THE ARRAY - which - I found HERE: https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
 function shuffleArray() {
   upperArray.sort(() => Math.random() - 0.5);
   lowerArray.sort(() => Math.random() - 0.5);
   specialArray.sort(() => Math.random() - 0.5);
   numberArray.sort(() => Math.random() - 0.5);
- // charactersIncluded.sort(() => Math.random() - 0.5);
 }
+
 shuffleArray();
+
+// I also created the value shuffleCharacters, as the default for charactersIncluded is 
+// null and it kept throwing up errors. So I took it out, placed the active function down
+// the line and that solved the issue.
 
 function shuffleCharacters() {
   charactersIncluded.sort(() => Math.random() - 0.5);
 }
 
-// Below is just a check to confirm that the array shuffled
-
-// console.log(upperArray[0]);
-// console.log(lowerArray[0]);
-// console.log(specialArray[0]);
-// console.log(numberArray[0]);
-
-// This variable set will be useful when confirming which character
-// types the user selects.
+// This variable set is useful when confirming which character
+// types the user selects, as well as the following variables that 
+// rely on the status of these variables.
 
 var selectUpper = true;
 var selectLower = true;
 var selectNumber = true;
 var selectSpecial = true;
 
-//SECRET WEAPON
-// For every character type the user selects, there is immediately 1 characters of that type added to the passcode.
-var userChoice = 0;
-
 // // Add event listener to generate button
 // generateBtn.addEventListener('click', writePassword);
-
 
 // // Write password to the #password input
 // function writePassword() { }
 
 //when the button is pressed, User should be asked how long they want the
 // Password to be.
+
 generateBtn.addEventListener("click",generatePassword);
 
 
 // THIS is what happens when the button is pressed
+
 function generatePassword() {
 
   //by reinserting this variable from the top of the page,
   // we are generating a new integer each time the button is pressed,
   // as well as shuffling the array around.
+
   shuffleArray();
+
+  // 10 is the length of the smallest array, and as such will throw up no errors
+  // when calling for randomIndex down the line.
+
   var randomIndex = getRandomInt(10); 
 
- 
+  //User input dictates length of passcode.
+
   passcodeLength = window.prompt("How many characters would you like the password to have?")
 
   // This essentially states that if the user chooses cancel rather than enter a button, they can
@@ -100,7 +99,7 @@ function generatePassword() {
   // Ensures that the user enters an appropriate function length.
 
   while (passcodeLength < 8 || passcodeLength > 128) {
-    window.alert("Password is too short or too long. 8<= password => 128.");
+    window.alert("Password needs to be between 8 and 128 characters. Please try again.");
     console.log("not going to work");
     generatePassword();
     return;
@@ -112,8 +111,9 @@ function generatePassword() {
   }
 
   // Seriese of alerts asking what the characters the user would like.
+  // The sequential order for the arrays is Uppercase, Lowercase, Special, then Numbers.
 
-  selectUpper = window.confirm("Would you like your passwork to have Uppercase Letters?")
+  selectUpper = window.confirm("Would you like your password to have Uppercase Letters?")
   if (!selectUpper){
     selectUpper = false;
     console.log(selectUpper);
@@ -124,7 +124,7 @@ function generatePassword() {
     userChoice = userChoice+1;
   }
 
-  selectLower = window.confirm("Would you like your passwork to have Lowercase Letters?")
+  selectLower = window.confirm("Would you like your password to have Lowercase Letters?")
   if (!selectLower){
     selectLower = false;
     console.log(selectLower);
@@ -135,7 +135,7 @@ function generatePassword() {
     userChoice = userChoice+1;
   }
 
-  selectSpecial = window.confirm("Would you like your passwork to have Special Characters?")
+  selectSpecial = window.confirm("Would you like your password to have Special Characters?")
   if (!selectSpecial){
     selectSpecial = false;
     console.log(selectSpecial);
@@ -146,7 +146,7 @@ function generatePassword() {
     userChoice = userChoice+1;
   }
 
-  selectNumber = window.confirm("Would you like your passwork to have Numbers?")
+  selectNumber = window.confirm("Would you like your password to have Numbers?")
   if (!selectNumber){
     selectNumber = false;
     console.log(selectNumber);
@@ -157,143 +157,77 @@ function generatePassword() {
     userChoice = userChoice+1;
   }
 
+  // This line only runs if the user does not select any character types.
+
   if (!selectUpper && !selectLower && !selectSpecial && !selectNumber) {
     console.log("You need to choose SOME characters!!!");
     window.alert("You do realise that when we want to generate a password, we need to select at least ONE type of character right? Try again");
     generatePassword();
   }
 
-  // This indicates how many character styles the user has selected.
+  // This indicates how many character styles the user has selected. 
+  // This comes in handy after we define our backupCharacters.
+
   console.log(userChoice);
 
  // This next statement is about creating the value of the backupCharacters variable,
  // so that we have at least 1 of each character style in the generated password.
+ // This statement series also adds the relevant variable to the variable set
+ // charactersIncluded: which was empty prior to running this function.
 
   if (selectUpper){
     charactersIncluded = charactersIncluded.concat(upperArray);
     backupCharacters +=  upperArray[randomIndex];
     console.log("Random add at end of password = " + backupCharacters);
-    
   }  
+
   if (selectLower){
       charactersIncluded = charactersIncluded.concat(lowerArray);
       backupCharacters += lowerArray[randomIndex];
       console.log("Random add at end of password = " + backupCharacters);
   }
+
   if (selectSpecial){
     charactersIncluded = charactersIncluded.concat(specialArray);
     backupCharacters += specialArray[randomIndex];
     console.log("Random add at end of password = " + backupCharacters);
-    }
+  }
+
     if (selectNumber){
     charactersIncluded = charactersIncluded.concat(numberArray);
     backupCharacters += numberArray[randomIndex];
     console.log("Random add at end of password = " + backupCharacters);
-    }
+  }
 
   // Independent statements that we want regardless of chosen characters.
+  // We want to add the backupCharacters to the end of the random numbers
+  // generated by the charactersIncluded array. 
+  // This is where the userChoice variable came in handy, as we redefine 
+  // passcodeLength to accommodate those backupCharacters.
+  // The shuffleCharacters function ensures that all the values
+  // in all the selected arrays are randomised, rather than being Upper => Lower
+  // => Special => Number, after which we cut up the new array charactersIncluded.
+
       passcodeLength = passcodeLength - userChoice;
       shuffleCharacters();
       charactersIncluded = charactersIncluded.slice(0,passcodeLength);
       console.log(charactersIncluded);
+
+  // The .join("") function turns all the variables inside an array into a 
+  // single string. Then the passcode will be that string 
+
       charactersIncluded = charactersIncluded.join("");
       console.log(charactersIncluded);
       testPasscode = charactersIncluded + backupCharacters;
       console.log(testPasscode);
       
+  // This is the reset block, essentially stating that once the code has finalised,
+  // we want the following variables to return to 0 or null. IF these lines aren't here,
+  // the code keeps track of previous selections and it quickly becomes a mess when generating
+  // multiple passwords.
+
       userChoice = 0;
       charactersIncluded = [];
       backupCharacters = "";
-  //   } else if (userChoice = 4){
-  //   charactersIncluded = upperArray.concat(lowerArray);
-  //   passcodeLength = passcodeLength - 2;
-  //   backupCharacters = upperArray[randomIndex] + lowerArray[randomIndex];
-  //   console.log(backupCharacters)
-  // }
-
-  // function shuffleCharacters() {
-  //   charactersIncluded.sort(() => Math.random() - 0.5);
-  // }
-
- // shuffleCharacters();
-
-  //Now we need to add a piece of code to disect the array to appropriate length
-    
-    // var stringArray = charactersIncluded.slice(0,passcodeLength);
-    // stringArray.join(" ");
-    // console.log(stringArray);
-    // var newPassword = stringArray + backupCharacters;
-    // console.log(newPassword);
-    // userChoice = 0;
-    // console.log(userChoice);
-    // backupCharacters = "";
-    // console.log(backupCharacters);
-
-  // the .join function turns the array into a single string
-  // charactersIncluded.join('');
-  // window.alert(charactersIncluded.join(''));
-
-  // for (i=0;i<passcodeLength;i++) {
-  //   window.alert(charactersIncluded[i]);
-  // }
-  //console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
-
+ 
 }
-
-
-
-
-
-// for (i=0;i<5;i++) {
-//   upperArray[i] = quickArray[i];
-//   console.log(quickArray[i])
-// }
-
-
-
-// var fruitBowl = ["oranges", "bananas", "apples"];
-// var saladKit  = ["tomatoes", "olives", "feta", "rocket"];
-// var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
-// var shoppingList = fruitBowl.concat(saladKit,granolaMix);
-
-// for (i=0;i<10;i++) {
-//   console.log(shoppingList[i]);
-
-//  }
-
- 
-//   //var compAnswer = possibleAnswers[randomIndex]; 
-//   var speficifIngredient = shoppingList[randomIndex]
- 
-// console.log(getRandomInt(12));
-// console.log(speficifIngredient)
-
-// if (passcodeLength < 8 || passcodeLength > 128) {
-//   //window.alert("Enter a number between 8 and 128");
-//   console.log("password is too short or too long");
-//   return;
-// } else {
-//   passcodeLength = window.prompt("How many characters would you like the password to have?")
-//   console.log("This we can work with");
-// }
- 
-
-//   var passcodeLength = window.prompt("How long should the password be?", "8 <= x => 128")
-//   console.log(passcodeLength);
-
-//   if ((passcodeLength < 8) || (passcodeLength > 128)) {
-//     window.alert("Password cannot be less than 8 characters or more than 128 characters.");
-    
-//   }
-
-
-//   var password = generatePassword();
-
-
-
-
-
-// while (passcodeLength < 8 || passcodeLength > 128) {
-//   window.alert("Enter a number between 8 and 128");
-//   window.prompt("How many characters would you like the password to have?")
-//  
