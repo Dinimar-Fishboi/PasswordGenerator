@@ -215,8 +215,9 @@ function generatePassword() {
 
   // The .join("") function turns all the keys inside charactersIncluded into
   // a single string. To which we then add the backupCharacters string.
-  // Then the passcode aka variable passwordText will be converted into the
-  // password variable that we have written at the top of the function.
+  // Then the passcode aka variable passwordText will be added to the HTML
+  // via the innerHTML command, which I believe is then printed due to the
+  // nature of textarea elements.
 
       charactersIncluded = charactersIncluded.join("");
       console.log(charactersIncluded);
