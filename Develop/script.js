@@ -176,25 +176,25 @@ function generatePassword() {
  // charactersIncluded: which was empty prior to running this function.
 
   if (selectUpper){
-    charactersIncluded = charactersIncluded.concat(upperArray);
+    charactersIncluded = charactersIncluded.concat(upperArray,upperArray,upperArray,upperArray,upperArray);
     backupCharacters +=  upperArray[randomIndex];
     console.log("Random add at end of password = " + backupCharacters);
   }  
 
   if (selectLower){
-      charactersIncluded = charactersIncluded.concat(lowerArray);
+      charactersIncluded = charactersIncluded.concat(lowerArray,lowerArray,lowerArray,lowerArray,lowerArray);
       backupCharacters += lowerArray[randomIndex];
       console.log("Random add at end of password = " + backupCharacters);
   }
 
   if (selectSpecial){
-    charactersIncluded = charactersIncluded.concat(specialArray);
+    charactersIncluded = charactersIncluded.concat(specialArray,specialArray,specialArray,specialArray,specialArray,specialArray,);
     backupCharacters += specialArray[randomIndex];
     console.log("Random add at end of password = " + backupCharacters);
   }
 
     if (selectNumber){
-    charactersIncluded = charactersIncluded.concat(numberArray);
+    charactersIncluded = charactersIncluded.concat(numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,numberArray,);
     backupCharacters += numberArray[randomIndex];
     console.log("Random add at end of password = " + backupCharacters);
   }
@@ -207,6 +207,7 @@ function generatePassword() {
   // The shuffleCharacters function ensures that all the values
   // in all the selected arrays are randomised, rather than being Upper => Lower
   // => Special => Number, after which we cut up the new array charactersIncluded.
+  console.log(charactersIncluded);
 
       passcodeLength = passcodeLength - userChoice;
       shuffleCharacters();
@@ -233,17 +234,17 @@ function generatePassword() {
 }
 
 
-var fruitBowl = ["oranges", "bananas", "apples"];
-var saladKit  = ["tomatoes", "olives", "feta", "rocket"];
-var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
-var shoppingList = fruitBowl.concat(saladKit,saladKit,saladKit,saladKit,saladKit,saladKit,saladKit,saladKit);
-console.log(shoppingList)
-for (i=0;i<10;i++) {
-  console.log(shoppingList[i]);
- }
+// var fruitBowl = ["oranges", "bananas", "apples"];
+// var saladKit  = ["tomatoes", "olives", "feta", "rocket"];
+// var granolaMix= ["almonds","oats","honey","ginger","pepitas"];
+// var shoppingList = fruitBowl.concat(saladKit,saladKit,saladKit,saladKit,saladKit,saladKit,saladKit,saladKit);
+// console.log(shoppingList)
+// for (i=0;i<10;i++) {
+//   console.log(shoppingList[i]);
+//  }
  
-  //var compAnswer = possibleAnswers[randomIndex]; 
-  var speficifIngredient = shoppingList[randomIndex]
+//   //var compAnswer = possibleAnswers[randomIndex]; 
+//   var speficifIngredient = shoppingList[randomIndex]
  
-console.log(getRandomInt(12));
-console.log(speficifIngredient)
+// console.log(getRandomInt(12));
+// console.log(speficifIngredient)
