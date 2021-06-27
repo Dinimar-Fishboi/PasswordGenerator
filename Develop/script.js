@@ -26,9 +26,8 @@ var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",
 
 var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
 
-console.log(charactersIncluded);
-
 // This is the equation to SHUFFLE THE ARRAY - which - I found HERE: https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
+
 function shuffleArray() {
   upperArray.sort(() => Math.random() - 0.5);
   lowerArray.sort(() => Math.random() - 0.5);
@@ -55,18 +54,11 @@ var selectLower = true;
 var selectNumber = true;
 var selectSpecial = true;
 
-//when the button is pressed, User should be asked how long they want the
-// Password to be.
-
-
-
 // THIS is what happens when the button is pressed
 
 function generatePassword() {
 
   var passwordText = document.querySelector('#password');
-
-
 
   // By reinserting this variable from the top of the page,
   // we are generating a new integer each time the button is pressed,
@@ -226,8 +218,6 @@ function generatePassword() {
       window.alert("Your new password is " + passwordText);
       document.getElementById('password').textContent = passwordText;
       passwordText.value = password;
-      console.log(password);
-
       
   // This is the reset block, essentially stating that once the code has finalised,
   // we want the following variables to return to 0 or null. IF these lines aren't here,
