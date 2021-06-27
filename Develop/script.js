@@ -8,8 +8,7 @@ var stringArray = "";
 var testPasscode = "";
 var userChoice = 0;
 var passwordText = document.querySelector('#password');
-
-passwordText.value = password;
+//passwordText.value = password;
 
 // Random Number Generator
 function getRandomInt(max) {
@@ -57,12 +56,6 @@ var selectUpper = true;
 var selectLower = true;
 var selectNumber = true;
 var selectSpecial = true;
-
-// // Add event listener to generate button
-// generateBtn.addEventListener('click', writePassword);
-
-// // Write password to the #password input
-// function writePassword() { }
 
 //when the button is pressed, User should be asked how long they want the
 // Password to be.
@@ -221,13 +214,14 @@ function generatePassword() {
       passwordText = charactersIncluded + backupCharacters;
       console.log(passwordText);
       window.alert("Your new password is " + passwordText);
-      document.querySelector("#password").innerHTML = passwordText;
-      event.preventDefault();
+      document.querySelector("password").innerHTML = passwordText;
+      //event.preventDefault();
       
   // This is the reset block, essentially stating that once the code has finalised,
   // we want the following variables to return to 0 or null. IF these lines aren't here,
   // the code keeps track of previous selections and it quickly becomes a mess when generating
   // multiple passwords.
+      
 
       userChoice = 0;
       charactersIncluded = [];
@@ -235,6 +229,6 @@ function generatePassword() {
  
 }
 
-var passwordText = document.querySelector('#password');
+// var passwordText = document.querySelector('#password');
 
 
