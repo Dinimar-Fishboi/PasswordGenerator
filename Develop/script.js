@@ -75,7 +75,7 @@ function generatePassword() {
 
 
 
-  //by reinserting this variable from the top of the page,
+  // By reinserting this variable from the top of the page,
   // we are generating a new integer each time the button is pressed,
   // as well as shuffling the array around.
 
@@ -105,9 +105,6 @@ function generatePassword() {
     generatePassword();
     return;
   } 
-
-  // If the user tried to enter something that is not a number, they cannot 
-  // move forward.
 
   if (passcodeLength > 7 || passcodeLength < 129) {
     console.log( "we can work with " + passcodeLength);
@@ -225,9 +222,11 @@ function generatePassword() {
       console.log(charactersIncluded);
       passwordText = charactersIncluded + backupCharacters;
       console.log(passwordText);
-      
+
       window.alert("Your new password is " + passwordText);
+      document.getElementById('password').textContent = passwordText;
       passwordText.value = password;
+      console.log(password);
 
       
   // This is the reset block, essentially stating that once the code has finalised,
@@ -245,3 +244,7 @@ function generatePassword() {
 // And finally, we tie the generatePassword function to the HTML button
 
 generateBtn.addEventListener("click",generatePassword);
+
+
+//=====================================================
+
