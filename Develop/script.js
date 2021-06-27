@@ -7,13 +7,6 @@ var backupCharacters = "";
 var passwordString = "";
 var testPasscode = "";
 var userChoice = 0;
-// var passwordText = document.querySelector('#password');
-
-// passwordText.value = password;
-
-// var newPassword = [passwordText];
-// newPassword[passwordText] = event.passwordString
-
 
 // Random Number Generator
 function getRandomInt(max) {
@@ -97,7 +90,7 @@ function generatePassword() {
     return;
   }
 
-  // Ensures that the user enters an appropriate function length.
+  // Ensures that the user enters an appropriate integer to fit the criteria.
 
   while (passcodeLength < 8 || passcodeLength > 128) {
     window.alert("Password needs to be between 8 and 128 characters. Please try again.");
@@ -108,7 +101,12 @@ function generatePassword() {
 
   if (passcodeLength > 7 || passcodeLength < 129) {
     console.log( "we can work with " + passcodeLength);
-  } 
+  } else {
+    window.alert("Password needs to be between 8 and 128 characters. Please try again.");
+    console.log("not going to work");
+    generatePassword();
+    return;
+  }
 
   // Seriese of alerts asking what the characters the user would like.
   // The sequential order for the arrays is Uppercase, Lowercase, Special, then Numbers.
@@ -163,6 +161,7 @@ function generatePassword() {
     console.log("You need to choose SOME characters!!!");
     window.alert("You do realise that when we want to generate a password, we need to select at least ONE type of character right? Try again");
     generatePassword();
+    return;
   }
 
   // This indicates how many character styles the user has selected. 
@@ -245,7 +244,3 @@ function generatePassword() {
 // And finally, we tie the generatePassword function to the HTML button
 
 generateBtn.addEventListener("click",generatePassword);
-
-
-//=====================================================
-
