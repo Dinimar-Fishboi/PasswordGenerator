@@ -106,10 +106,12 @@ function generatePassword() {
     return;
   } 
 
+  // If the user tried to enter something that is not a number, they cannot 
+  // move forward.
+
   if (passcodeLength > 7 || passcodeLength < 129) {
-   // passcodeLength = window.prompt("How many characters would you like the password to have?")
     console.log( "we can work with " + passcodeLength);
-  }
+  } 
 
   // Seriese of alerts asking what the characters the user would like.
   // The sequential order for the arrays is Uppercase, Lowercase, Special, then Numbers.
@@ -214,28 +216,17 @@ function generatePassword() {
       charactersIncluded = charactersIncluded.slice(0,passcodeLength);
       console.log(charactersIncluded);
 
-  // The .join("") function turns all the variables inside an array into a 
-  // single string. Then the passcode will be that string 
+  // The .join("") function turns all the keys inside charactersIncluded into
+  // a single string. To which we then add the backupCharacters string.
+  // Then the passcode aka variable passwordText will be converted into the
+  // password variable that we have written at the top of the function.
 
       charactersIncluded = charactersIncluded.join("");
       console.log(charactersIncluded);
       passwordText = charactersIncluded + backupCharacters;
       console.log(passwordText);
-
-      // if (passwordString){
-      //   window.alert("Your new password is " + passwordString);
-      //   newPassword[passwordText] = event.passwordString;
-
-      //   document.innerHTML(newPassword) = password;
-      //   //document.textarea.textContent = passwordText;
-      //   //document.querySelector("#password").innerHTML = "passwordText";
-      //   event.preventDefault();
-      // }
-
+      
       window.alert("Your new password is " + passwordText);
-
-      document.getElementById('password').innerHTML = passwordText;
-
       passwordText.value = password;
 
       
@@ -251,7 +242,6 @@ function generatePassword() {
  
 }
 
-// var passwordText = document.querySelector('#password');
-
+// And finally, we tie the generatePassword function to the HTML button
 
 generateBtn.addEventListener("click",generatePassword);
