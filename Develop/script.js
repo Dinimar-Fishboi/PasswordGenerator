@@ -2,6 +2,8 @@
 var generateBtn = document.querySelector('#generate');
 var passcodeLength = "";
 var backupCharacters = "";
+var stringArray = "";
+var testPasscode = "";
 var passwordText = document.querySelector('#password');
 
 passwordText.value = password;
@@ -14,7 +16,7 @@ var randomIndex = getRandomInt(12);
 
 //The next few lines are purely arrays and variables to make the Bigger Arrays
 
-var charactersIncluded = "";
+var charactersIncluded = [];
 
 var upperArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
@@ -40,6 +42,10 @@ function shuffleArray() {
  // charactersIncluded.sort(() => Math.random() - 0.5);
 }
 shuffleArray();
+
+function shuffleCharacters() {
+  charactersIncluded.sort(() => Math.random() - 0.5);
+}
 
 // Below is just a check to confirm that the array shuffled
 
@@ -175,47 +181,71 @@ function generatePassword() {
   //   charactersIncluded = numberArray.concat();
   // }
 
+  // if (selectUpper){
+  //   backupCharacters = upperArray[randomIndex]
+  // }
  
-  if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
-    charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
-  }
+  // if ((selectUpper) && (selectLower) && (selectSpecial) && (selectNumber)) {
+  //   charactersIncluded = upperArray.concat(lowerArray,specialArray,numberArray);
+  //   shuffleCharacters();
+  //   passcodeLength = passcodeLength - userChoice;
+  //   stringArray = charactersIncluded.slice(0,passcodeLength);
+  //   stingArray = stringArray.join('');
+  //   console.log(stringArray);
+  // }
 
   if (selectUpper){
-    charactersIncluded = charactersIncluded.concat(selectUpper);
-    passcodeLength = passcodeLength - userChoice;
+    charactersIncluded = charactersIncluded.concat(upperArray);
     backupCharacters +=  upperArray[randomIndex];
-    console.log(backupCharacters);
-    console.log(charactersIncluded);
+    console.log("Random add at end of password = " + backupCharacters);
+    
   }  
   if (selectLower){
       charactersIncluded = charactersIncluded.concat(lowerArray);
-      passcodeLength = passcodeLength - userChoice;
+      //passcodeLength = passcodeLength - userChoice;
       backupCharacters += lowerArray[randomIndex];
-      console.log(backupCharacters);
+      console.log("Random add at end of password = " + backupCharacters);
+      //  console.log(charactersIncluded);
+  }
+
+  // Independent statements that we want regardless of chosen characters.
+      passcodeLength = passcodeLength - userChoice;
+      shuffleCharacters();
+      charactersIncluded = charactersIncluded.slice(0,passcodeLength);
       console.log(charactersIncluded);
+      charactersIncluded = charactersIncluded.join("");
+      console.log(charactersIncluded);
+      testPasscode = charactersIncluded + backupCharacters;
+      console.log(testPasscode);
+      
+      userChoice = 0;
+      charactersIncluded = [];
+      backupCharacters = "";
+  //   } else if (userChoice = 4){
+  //   charactersIncluded = upperArray.concat(lowerArray);
+  //   passcodeLength = passcodeLength - 2;
+  //   backupCharacters = upperArray[randomIndex] + lowerArray[randomIndex];
+  //   console.log(backupCharacters)
+  // }
 
-    } else if (userChoice = 4){
-    charactersIncluded = upperArray.concat(lowerArray);
-    passcodeLength = passcodeLength - 2;
-    backupCharacters = upperArray[randomIndex] + lowerArray[randomIndex];
-    console.log(backupCharacters)
-  }
+  // function shuffleCharacters() {
+  //   charactersIncluded.sort(() => Math.random() - 0.5);
+  // }
 
-  function shuffleCharacters() {
-    charactersIncluded.sort(() => Math.random() - 0.5);
-  }
  // shuffleCharacters();
 
   //Now we need to add a piece of code to disect the array to appropriate length
-    var stringArray = charactersIncluded.slice(0,passcodeLength);
-    stringArray.join(" ");
-    console.log(stringArray);
-    var newPassword = stringArray + backupCharacters;
-    console.log(newPassword);
-    userChoice = 0;
-    console.log(userChoice);
-    backupCharacters = "";
-    console.log(backupCharacters);
+    
+    // var stringArray = charactersIncluded.slice(0,passcodeLength);
+    // stringArray.join(" ");
+    // console.log(stringArray);
+    // var newPassword = stringArray + backupCharacters;
+    // console.log(newPassword);
+    // userChoice = 0;
+    // console.log(userChoice);
+    // backupCharacters = "";
+    // console.log(backupCharacters);
+
   // the .join function turns the array into a single string
   // charactersIncluded.join('');
   // window.alert(charactersIncluded.join(''));
@@ -226,6 +256,7 @@ function generatePassword() {
   //console.log(charactersIncluded[randomIndex] + charactersIncluded[randomIndex]);
 
 }
+
 
 
 
@@ -282,4 +313,4 @@ function generatePassword() {
 // while (passcodeLength < 8 || passcodeLength > 128) {
 //   window.alert("Enter a number between 8 and 128");
 //   window.prompt("How many characters would you like the password to have?")
-// }
+//  
