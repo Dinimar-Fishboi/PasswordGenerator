@@ -22,7 +22,7 @@ var upperArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P
 
 var lowerArray = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"];
 
-var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|"];
+var specialArray = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","<",">","/","?","[","{","]","}","|",".","`","~"];
 
 var numberArray = ["0","1","2","3","4","5","6","7","8","9"];
 
@@ -73,7 +73,7 @@ function generatePassword() {
 
   //User input dictates length of passcode.
 
-  passcodeLength = window.prompt("How many characters would you like the password to have?")
+  passcodeLength = window.prompt("How many characters would you like the password to have?","Min length = 8, Max length = 128")
 
   // This essentially states that if the user chooses cancel rather than enter a button, they can
   // exit the window.
@@ -215,7 +215,7 @@ function generatePassword() {
       passwordText = charactersIncluded + backupCharacters;
       console.log(passwordText);
 
-      window.alert("Your new password is " + passwordText);
+      window.alert("Your new password is: " + passwordText);
       document.getElementById('password').textContent = passwordText;
       passwordText.value = password;
       
