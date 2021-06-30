@@ -10,7 +10,7 @@ This project was tackled by creating global objects and functions that were all 
 
 ## Link to deployed application and Screenshot
 
-https://dinimar-fishboi.github.io/PasswordGenerator/![Password_Generator_Screenshot]
+https://dinimar-fishboi.github.io/PasswordGenerator/
 
 ![Password_Generator_Screenshot](https://user-images.githubusercontent.com/83541287/123544204-8e27bd00-d795-11eb-9a51-9a4fe81af24d.png)
 
